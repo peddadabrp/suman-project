@@ -12,7 +12,8 @@ sed "s/ServerName.*/ServerName www.localhost.com:443/" ./ssl.conf
 
 mkdir -p /apps/hello-http/html \
 	&& cp ./hello.html /apps/hello-http/html/ \
-	&& cp ./ssl.conf /etc/httpd/conf.d/
+	&& cp ./ssl.conf /etc/httpd/conf.d/ \
+	&& cp ./httpd.conf /etc/httpd/conf/
 
 service httpd start \
 	&& service httpd status
