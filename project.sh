@@ -8,7 +8,7 @@ LIST_OF_APPS="httpd mod_ssl"
 yum update -y \
 	&& yum -y install $LIST_OF_APPS
 	
-sed "s/ServerName.*/ServerName www.$ipaddr.com:443/" ./ssl.conf
+sed "s/ServerName.*/ServerName www.localhost.com:443/" ./ssl.conf
 
 mkdir -p /apps/hello-http/html \
 	&& cp ./hello.html /apps/hello-http/html/ \
@@ -17,4 +17,4 @@ mkdir -p /apps/hello-http/html \
 service httpd start \
 	&& service httpd status
 
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://"$ipaddr"/hello.html
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost/hello.html
