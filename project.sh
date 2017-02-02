@@ -7,6 +7,8 @@ LIST_OF_APPS="httpd mod_ssl"
 
 yum update -y \
 	&& yum -y install $LIST_OF_APPS
+	
+sed "s/ServerName.*/ServerName www.$ipaddr.com:443/" ./ssl.conf
 
 mkdir -p /apps/hello-http/html \
 	&& cp ./hello.html /apps/hello-http/html/ \
@@ -15,4 +17,4 @@ mkdir -p /apps/hello-http/html \
 service httpd start \
 	&& service httpd status
 
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://ec2-52-53-248-207.us-west-1.compute.amazonaws.com/hello.html
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://"$ipaddr"/hello.html
