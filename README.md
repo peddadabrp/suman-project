@@ -5,10 +5,10 @@ a) Prerequisites.
 2) Download the script into the centos machine.
 3) Run the shell script by running following command as root or sudo user.
    
-   As root user run the following command. 
+   a) As root user run the following command. 
     # sh project.sh
    
-   As sudo user run the following command and enter the user password.
+   b) As sudo user run the following command and enter the user password.
     $ sudo sh project.sh
   
 b) How to access the application?
