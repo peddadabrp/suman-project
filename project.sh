@@ -11,7 +11,7 @@ yum update -y \
 sed "s/ServerName.*/ServerName www.localhost.com:443/" ./ssl.conf
 
 mkdir -p /apps/hello-http/html \
-	&& mkdir -p /var/log/weblogs \
+	&& mkdir -p /var/log/weblogs/html/ \
 	&& cp ./hello.html /apps/hello-http/html/ \
 	&& cp ./ssl.conf /etc/httpd/conf.d/ \
 	&& cp ./httpd.conf /etc/httpd/conf/
